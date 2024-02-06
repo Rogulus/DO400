@@ -26,7 +26,9 @@ pipeline {
 		}
 		stage ('deploy') {
 			when { expression { env.GIT_BRANCH == 'origin/master' } }
-			echo 'deploying'
+			steps {
+				echo 'deploying'
+			}
 		}
 	}
 }
