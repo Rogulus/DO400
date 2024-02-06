@@ -6,14 +6,18 @@ pipeline {
 				git url: 'https://github.com/Rogulus/DO400'
 			}
 		}
-		stage ('Backend tests') {
-			steps {
-				sh './tests/backend/echo'
-			}
-		}
-		stage ('Frontend tests') {
-			steps {
-				sh './tests/frontend/echo'
+		stage ('Run tests') {
+			parallel {
+				stage ('Backend tests') {
+					steps {
+						sh './tests/backend/echo'
+					}
+				}
+				stage ('Frontend tests') {
+					steps {
+						sh './tests/frontend/echo'
+					}
+				}
 			}
 		}
 	}
