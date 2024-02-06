@@ -2,6 +2,7 @@ pipeline {
 	agent any
 	parameters {
 		booleanParam (name: 'RUN_FRONTEND_TESTS', defaultValue: true)
+	}
 	stages {
 		stage ('Checkout') {
 			steps {
